@@ -21,6 +21,10 @@ class RichEditorEssentialsServiceProvider extends ServiceProvider
                 id: static::$name.'/video',
                 path: __DIR__.'/../resources/dist/video.js'
             )->loadedOnRequest(),
+            Js::make(
+                id: static::$name.'/text-direction',
+                path: __DIR__.'/../resources/dist/TextDirection.js'
+            )->loadedOnRequest(),
         ], static::$package);
     }
 }
