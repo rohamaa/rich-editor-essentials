@@ -26,7 +26,7 @@ class TextDirection extends Extension
                     'dir' => [
                         'default' => null,
                         'parseHTML' => fn ($element) => $element->getAttribute('dir'),
-                        'renderHTML' => fn ($attributes) => $attributes->dir ? ['dir' => $attributes->dir] : [],
+                        'renderHTML' => fn ($attributes) => ($attributes->dir ?? null) ? ['dir' => $attributes->dir] : [],
                     ],
                 ],
             ],
