@@ -54,7 +54,7 @@ class VideoPlugin implements RichContentPlugin
     {
         return [
             RichEditorTool::make('video')
-                ->label(__('Video'))
+                ->label(__('rich-editor-essentials::messages.video.label'))
                 ->action()
                 ->icon(Heroicon::OutlinedFilm)
                 ->iconAlias('filament:toolbar.video'),
@@ -77,7 +77,7 @@ class VideoPlugin implements RichContentPlugin
                 ])
                 ->schema([
                     TextInput::make('src')
-                        ->label(__('Video URL'))
+                        ->label(__('rich-editor-essentials::messages.video.url'))
                         ->placeholder('https://example.com/video.mp4')
                         ->live()
                         ->required()
@@ -87,9 +87,9 @@ class VideoPlugin implements RichContentPlugin
                         ->gridDirection('row')
                         ->columns(3)
                         ->options([
-                            'controls' => __('Controls'),
-                            'autoplay' => __('Autoplay'),
-                            'loop' => __('Loop'),
+                            'controls' => __('rich-editor-essentials::messages.video.controls'),
+                            'autoplay' => __('rich-editor-essentials::messages.video.autoplay'),
+                            'loop' => __('rich-editor-essentials::messages.video.loop'),
                         ])
                         ->dehydrateStateUsing(fn (Get $get, $state): array => [
                             'controls' => in_array('controls', $state) ? 1 : 0,
@@ -99,7 +99,7 @@ class VideoPlugin implements RichContentPlugin
                     Checkbox::make('responsive')
                         ->default(true)
                         ->live()
-                        ->label(__('Responsive'))
+                        ->label(__('rich-editor-essentials::messages.video.responsive'))
                         ->afterStateUpdated(function (callable $set, $state): void {
                             if ($state) {
                                 $set('width', '16');
@@ -114,12 +114,12 @@ class VideoPlugin implements RichContentPlugin
                         TextInput::make('width')
                             ->live()
                             ->required()
-                            ->label(__('Width'))
+                            ->label(__('rich-editor-essentials::messages.video.width'))
                             ->default('16'),
                         TextInput::make('height')
                             ->live()
                             ->required()
-                            ->label(__('Height'))
+                            ->label(__('rich-editor-essentials::messages.video.height'))
                             ->default('9'),
                     ])->columns(['md' => 2]),
                 ])

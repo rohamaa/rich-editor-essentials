@@ -14,6 +14,11 @@ class RichEditorEssentialsServiceProvider extends ServiceProvider
 
     public static string $package = 'rohama/rich-editor-essentials';
 
+    public function register(): void
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', static::$name);
+    }
+
     public function boot(): void
     {
         FilamentAsset::register([
